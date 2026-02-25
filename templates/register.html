@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت‌نام</title>
+    <style>
+        body { 
+            font-family: Tahoma, Arial, sans-serif; 
+            background: linear-gradient(135deg, #4caf50, #81c784); 
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            width: 320px; 
+            padding: 25px;
+            background: #fff; 
+            border-radius: 12px; 
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        input, button {
+            width: 100%; 
+            padding: 10px; 
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button { 
+            background: #4caf50; 
+            color: #fff; 
+            border: none; 
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { filter: brightness(1.1); }
+        .message { 
+            color: red; 
+            margin-bottom: 10px; 
+            font-size: 14px; 
+        }
+        a { 
+            text-decoration: none; 
+            color: #2196f3; 
+            display: block; 
+            margin-top: 12px; 
+        }
+        a:hover { text-decoration: underline; }
+        .footer {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>ثبت‌نام</h2>
+
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <form method="post">
+        <input name="username" placeholder="نام کاربری" required>
+        <input type="password" name="password" placeholder="رمز عبور" required>
+        <button type="submit">ثبت‌نام</button>
+    </form>
+
+    <a href="/login">ورود به حساب</a>
+
+    <div class="footer">
+        💻 تمامی اطلاعات در پوشه mysite ذخیره می‌شوند
+    </div>
+</div>
+
+</body>
+</html>
