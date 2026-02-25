@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <style>
+        body { 
+            font-family: Tahoma, Arial, sans-serif; 
+            background: linear-gradient(135deg, #2196f3, #21cbf3); 
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            width: 320px; 
+            padding: 25px;
+            background: #fff; 
+            border-radius: 12px; 
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        input, button {
+            width: 100%; 
+            padding: 10px; 
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button { 
+            background: #2196f3; 
+            color: #fff; 
+            border: none; 
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #1976d2; }
+        .message { 
+            color: red; 
+            margin-bottom: 10px; 
+            font-size: 14px; 
+        }
+        a { 
+            text-decoration: none; 
+            color: #2196f3; 
+            display: block; 
+            margin-top: 12px; 
+        }
+        a:hover { text-decoration: underline; }
+        .footer {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>ورود</h2>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <form method="post">
+        <input name="username" placeholder="نام کاربری" required>
+        <input type="password" name="password" placeholder="رمز عبور" required>
+        <button type="submit">ورود</button>
+    </form>
+
+    <a href="/register">ثبت‌نام</a>
+    {% if session.get("user") %}
+        <a href="/logout">خروج</a>
+    {% endif %}
+
+    <div class="footer">
+        💻 این سایت با Flask ساخته شده و تمامی داده‌ها در پوشه mysite ذخیره می‌شوند
+    </div>
+</div>
+
+</body>
+</html>
