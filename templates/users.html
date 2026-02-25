@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست کاربران</title>
+    <style>
+        body {
+            font-family: Tahoma;
+            background:#f2f2f2;
+            margin:0;
+            padding:20px;
+        }
+        h2, p { text-align:center; margin-bottom: 15px; }
+        table {
+            width:95%;
+            margin:auto;
+            border-collapse:collapse;
+            background:#fff;
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border:1px solid #ccc;
+            padding:10px;
+            text-align:center;
+        }
+        th { background:#4caf50; color:#fff; }
+        tr:hover { background:#f1f1f1; }
+        .btn {
+            display:inline-block;
+            margin:10px auto;
+            text-align:center;
+            background:#2196f3;
+            color:#fff;
+            padding:8px 18px;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:700;
+        }
+        .btn:hover { filter: brightness(1.1); }
+    </style>
+</head>
+<body>
+
+<h2>لیست کاربران</h2>
+<p>📊 بازدید کل سایت: {{ total_visits }}</p>
+
+<p style="text-align:center;">
+    <a class="btn" href="/download-users">دانلود PDF کاربران</a>
+</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>نام کاربری</th>
+        <th>IP</th>
+        <th>تاریخ ثبت‌نام</th>
+        <th>آخرین ورود</th>
+    </tr>
+
+    {% for u in users %}
+    <tr>
+        <td>{{ u[0] }}</td>
+        <td>{{ u[1] }}</td>
+        <td>{{ u[2] }}</td>
+        <td>{{ u[3] }}</td>
+        <td>{{ u[4] or "—" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p style="text-align:center; margin-top:20px;">
+    <a class="btn" href="/">بازگشت به صفحه اصلی</a>
+</p>
+
+</body>
+</html>
